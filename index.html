@@ -1,0 +1,320 @@
+<html><head>
+    <title>Back to the Future</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+ <style type="text/css">@import url(bttf.css);</style>
+ 
+<script type="text/javascript">
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    	// If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+    	// If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+    	// If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  } 
+    return query_string;
+} ();
+
+//alert(QueryString.hourOffset);
+
+if(QueryString.firstTimeDeparted==null){
+		var firstTimeDeparted="022620141137";
+	}else{
+		var firstTimeDeparted=QueryString.firstTimeDeparted;
+}
+if(QueryString.hourOffset==null){
+		hourOffset=9;
+	}else{
+		var hourOffset=parseInt(QueryString.hourOffset);
+}
+
+
+
+function adjustHourOffset(adjustment){
+	hourOffset = hourOffset+adjustment
+}
+
+function setClock(){
+var dateobj=new Date();
+var hr_adjuster=(parseInt(dateobj.getHours())+hourOffset)
+while (hr_adjuster > 23) { hr_adjuster = hr_adjuster-24; }
+var hr = "0"+hr_adjuster;
+var mi = "0"+dateobj.getMinutes()
+var se = "0"+dateobj.getSeconds()
+//var currenttime="0"+dateobj.getHours()+":"+dateobj.getMinutes()+":"+dateobj.getSeconds()
+var currenttime = hr.substr(-2)+":"+mi.substr(-2)+":"+se.substr(-2)
+
+var tmp_month = "000"+dateobj.getMonth();
+var tmp_date  = "000"+dateobj.getDate();
+var currentdate=dateobj.getFullYear()+":"+tmp_month.substr(-2,2)+":"+tmp_date.substr(-2,2)
+
+//alert(currenttime);
+//alert(dateobj.getDate());
+document.getElementById("y1").src="Numbers/Green/"+currentdate[0]+".png";
+document.getElementById("y2").src="Numbers/Green/"+currentdate[1]+".png";
+document.getElementById("y3").src="Numbers/Green/"+currentdate[2]+".png";
+document.getElementById("y4").src="Numbers/Green/"+currentdate[3]+".png";
+
+document.getElementById("mo").src="Numbers/Green/m_"+currentdate[5]+currentdate[6]+".png";
+
+document.getElementById("d1").src="Numbers/Green/"+currentdate[8]+".png";
+document.getElementById("d2").src="Numbers/Green/"+currentdate[9]+".png";
+
+document.getElementById("h1").src="Numbers/Green/"+currenttime[0]+".png";
+document.getElementById("h2").src="Numbers/Green/"+currenttime[1]+".png";
+document.getElementById("m1").src="Numbers/Green/"+currenttime[3]+".png";
+document.getElementById("m2").src="Numbers/Green/"+currenttime[4]+".png";
+
+
+
+
+
+
+}
+
+
+function runClock(){
+
+window.setIntVal(setClock(), 1000);
+
+}
+
+</script> 
+ 
+</head>
+<body>
+<div id="main_container">
+	<div id="controlpanel">
+		<div class="clock dest">
+			<div class="month"></div>
+			<div class="day"></div>
+			<div class="year"></div>
+			<div class="ampm"></div>
+			<div class="hour"></div>
+			<div class="colon"></div>
+			<div class="minute"></div>
+		</div>
+		
+		
+		<div class="clock present">
+			<div class="month">
+				<img id="mo" alt="Month" src="Numbers/Green/m_09.png">
+			</div>
+			<div class="day">
+				<img alt="d1" id="d1" src="Numbers/Green/2.png"><img alt="d2" id="d2" src="Numbers/Green/6.png">
+			</div>
+			<div class="year">
+				<img alt="y1" id="y1" src="Numbers/Green/1.png"><img alt="y2" id="y2" src="Numbers/Green/9.png"><img alt="y3" id="y3" src="Numbers/Green/8.png"><img alt="y4" id="y4" src="Numbers/Green/7.png">
+			</div>
+			<div class="ampm">
+			</div>
+			<div class="hour">
+				<img alt="h1" id="h1" src="Numbers/Green/0.png"><img alt="h2" id="h2" src="Numbers/Green/4.png">
+			</div>
+			<div class="colon">
+			</div>
+			<div class="minute">
+				<img alt="m1" id="m1" src="Numbers/Green/2.png"><img alt="m21" id="m2" src="Numbers/Green/3.png">
+			</div>
+		</div>
+		
+		
+		<div class="clock last">
+			<div class="month">
+				<img id="fmo" alt="Month" src="Numbers/Amber/m_02.png">
+			</div>
+			<div class="day">
+				<img alt="Day1" id="fd1" src="Numbers/Amber/2.png"><img alt="Day2" id="fd2" src="Numbers/Amber/6.png">
+			</div>
+			<div class="year">
+				<img alt="Year1" id="fy1" src="Numbers/Amber/2.png"><img alt="Year2" id="fy2" src="Numbers/Amber/0.png"><img alt="Year3" id="fy3" src="Numbers/Amber/1.png"><img alt="Year4" id="fy4" src="Numbers/Amber/5.png">
+			</div>
+			<div class="ampm">
+			</div>
+			<div class="hour">
+				<img alt="Hour1" id="fh1" src="Numbers/Amber/1.png"><img alt="Hour2" id="fh2" src="Numbers/Amber/1.png">
+			</div>
+			<div class="colon">
+			</div>
+			<div class="minute">
+				<img alt="Minute1" id="fm1" src="Numbers/Amber/3.png"><img alt="Minute2" id="fm2" src="Numbers/Amber/7.png">
+			</div>
+		</div>
+	</div>
+	
+<script type="text/javascript">
+if(firstTimeDeparted[10]!=null){
+document.getElementById("fmo").src="Numbers/Amber/m_"+firstTimeDeparted[0]+firstTimeDeparted[1]+".png";
+                         
+document.getElementById("fd1").src="Numbers/Amber/"+firstTimeDeparted[2]+".png";
+document.getElementById("fd2").src="Numbers/Amber/"+firstTimeDeparted[3]+".png";
+
+document.getElementById("fy1").src="Numbers/Amber/"+firstTimeDeparted[4]+".png";
+document.getElementById("fy2").src="Numbers/Amber/"+firstTimeDeparted[5]+".png";
+document.getElementById("fy3").src="Numbers/Amber/"+firstTimeDeparted[6]+".png";
+document.getElementById("fy4").src="Numbers/Amber/"+firstTimeDeparted[7]+".png";                       
+                         
+document.getElementById("fh1").src="Numbers/Amber/"+firstTimeDeparted[8]+".png";
+document.getElementById("fh2").src="Numbers/Amber/"+firstTimeDeparted[9]+".png";
+document.getElementById("fm1").src="Numbers/Amber/"+firstTimeDeparted[10]+".png";
+document.getElementById("fm2").src="Numbers/Amber/"+firstTimeDeparted[11]+".png";
+}
+	var klokke=setInterval(function(){setClock()}, 1000);
+</script>	
+
+<div id="about">
+	<h3>Tesla BTTF  v 0.5.3</h3>
+    Bug reports, suggestions etc can be sent to tesla_bttf (a) ramsvik.org
+</div>
+
+<div id="settings">
+Hour offset:  <a class="diger" onClick="adjustHourOffset(-1);">-</a> <a class="diger" onClick="adjustHourOffset(1);">+</a>
+</div>
+<div id="help">
+<h3>Help</h3>
+Parameters:<br>
+hourOffset=2 <i>Offsets the hour in case the browser clock is different from local time. Default offset is 9, which is the offset for me, the developer of this clock. ;-)</i><br>
+firstTimeDeparted=022620141137 <i>Sets the bottom time. Format MMYYYYhhmm Note: Jan=00, Feb=01 ....  Used to display time of delivery or some other date and time of significance. :-)</i>
+<br><br>
+You can add one or multiple parameters. Order is not important. Note that first parameter must have a ? in front of it. Add more parameters by using the &amp; sign:<br>
+?Parameter1=Value1&amp;Parameter2=Value2
+<br><br>
+Examples:<br>
+<a href="http://tesla.ramsvik.org/?hourOffset=2&firstTimeDeparted=022620141137">http://tesla.ramsvik.org/?hourOffset=2&amp;firstTimeDeparted=022620141137</a> <i>(adjust hour and first departure)</i><br>
+<a href="http://tesla.ramsvik.org/?hourOffset=2&firstTimeDeparted=022620141137">http://tesla.ramsvik.org/?firstTimeDeparted=022620141137</a> <i>(adjust only first departure)</i>
+</div>
+
+<div id="other_sites">
+<h3>Other useful sites/screens:</h3>
+Useful info/links (Norwegian): <a href="http://ladekameratene.no/">http://ladekameratene.no/</a><br>
+Useful info/links (Norwegian): <a href="http://mintesla.com/">http://mintesla.com/</a><br>
+<a href="http://www.vegvesen.no/Trafikkinformasjon/Reiseinformasjon/Trafikkmeldinger?type=utvalgt">Utvalgte Trafikkmeldinger</a><br>
+
+</div>
+
+<div id="release_notes">
+<h3>Release notes</h3>
+<ul class="versionlist">
+    <li class="releasenumber">v 0.5.3</li>
+    <li class="releasedate">Released 20180209</li>
+    <ul>
+        <li>Fixed issue with missing leading zero on days</li>
+        <li>Removed dead link</li>
+    </ul>
+</ul>
+<ul class="versionlist">
+    <li class="releasenumber">v 0.5.2</li>
+    <li class="releasedate">Released 20140713</li>
+    <ul>
+        <li>Added link to mytesla.com</li>
+        <li>Added link to Utvalgte Trafikkmeldinger</li>
+    </ul>
+</ul>
+
+<ul class="versionlist">
+    <li class="releasenumber">v 0.5.1</li>
+    <li class="releasedate">Released 20140522</li>
+    <ul>
+        <li>Added release notes</li>
+        <li>Added image preloading</li>
+        <li>Changed background color to black</li>
+        <li>Changed number format on month image files</li>
+        <li>Set default hourOffset=9</li>
+    </ul>
+</ul>
+
+</div>
+
+</div>
+<div class="preload">
+<img src="bttf.png" height="1" width="1">
+<br>
+<img src="Numbers/Green/0.png" height="1" width="1">
+<img src="Numbers/Green/1.png" height="1" width="1">
+<img src="Numbers/Green/2.png" height="1" width="1">
+<img src="Numbers/Green/3.png" height="1" width="1">
+<img src="Numbers/Green/4.png" height="1" width="1">
+<img src="Numbers/Green/5.png" height="1" width="1">
+<img src="Numbers/Green/6.png" height="1" width="1">
+<img src="Numbers/Green/6_modern.png" height="1" width="1">
+<img src="Numbers/Green/7.png" height="1" width="1">
+<img src="Numbers/Green/8.png" height="1" width="1">
+<img src="Numbers/Green/9.png" height="1" width="1">
+<img src="Numbers/Green/m_00.png" height="1" width="1">
+<img src="Numbers/Green/m_01.png" height="1" width="1">
+<img src="Numbers/Green/m_02.png" height="1" width="1">
+<img src="Numbers/Green/m_03.png" height="1" width="1">
+<img src="Numbers/Green/m_04.png" height="1" width="1">
+<img src="Numbers/Green/m_05.png" height="1" width="1">
+<img src="Numbers/Green/m_06.png" height="1" width="1">
+<img src="Numbers/Green/m_07.png" height="1" width="1">
+<img src="Numbers/Green/m_08.png" height="1" width="1">
+<img src="Numbers/Green/m_09.png" height="1" width="1">
+<img src="Numbers/Green/m_10.png" height="1" width="1">
+<img src="Numbers/Green/m_11.png" height="1" width="1">
+<br>
+<img src="Numbers/Green/0.png" height="1" width="1">
+<img src="Numbers/Green/1.png" height="1" width="1">
+<img src="Numbers/Green/2.png" height="1" width="1">
+<img src="Numbers/Green/3.png" height="1" width="1">
+<img src="Numbers/Green/4.png" height="1" width="1">
+<img src="Numbers/Green/5.png" height="1" width="1">
+<img src="Numbers/Green/6.png" height="1" width="1">
+<img src="Numbers/Green/6_modern.png" height="1" width="1">
+<img src="Numbers/Green/7.png" height="1" width="1">
+<img src="Numbers/Green/8.png" height="1" width="1">
+<img src="Numbers/Green/9.png" height="1" width="1">
+<img src="Numbers/Green/m_00.png" height="1" width="1">
+<img src="Numbers/Green/m_01.png" height="1" width="1">
+<img src="Numbers/Green/m_02.png" height="1" width="1">
+<img src="Numbers/Green/m_03.png" height="1" width="1">
+<img src="Numbers/Green/m_04.png" height="1" width="1">
+<img src="Numbers/Green/m_05.png" height="1" width="1">
+<img src="Numbers/Green/m_06.png" height="1" width="1">
+<img src="Numbers/Green/m_07.png" height="1" width="1">
+<img src="Numbers/Green/m_08.png" height="1" width="1">
+<img src="Numbers/Green/m_09.png" height="1" width="1">
+<img src="Numbers/Green/m_10.png" height="1" width="1">
+<img src="Numbers/Green/m_11.png" height="1" width="1">
+<br>
+<img src="Numbers/Amber/0.png" height="1" width="1">
+<img src="Numbers/Amber/1.png" height="1" width="1">
+<img src="Numbers/Amber/2.png" height="1" width="1">
+<img src="Numbers/Amber/3.png" height="1" width="1">
+<img src="Numbers/Amber/4.png" height="1" width="1">
+<img src="Numbers/Amber/5.png" height="1" width="1">
+<img src="Numbers/Amber/6.png" height="1" width="1">
+<img src="Numbers/Amber/6_modern.png" height="1" width="1">
+<img src="Numbers/Amber/7.png" height="1" width="1">
+<img src="Numbers/Amber/8.png" height="1" width="1">
+<img src="Numbers/Amber/9.png" height="1" width="1">
+<img src="Numbers/Amber/m_00.png" height="1" width="1">
+<img src="Numbers/Amber/m_01.png" height="1" width="1">
+<img src="Numbers/Amber/m_02.png" height="1" width="1">
+<img src="Numbers/Amber/m_03.png" height="1" width="1">
+<img src="Numbers/Amber/m_04.png" height="1" width="1">
+<img src="Numbers/Amber/m_05.png" height="1" width="1">
+<img src="Numbers/Amber/m_06.png" height="1" width="1">
+<img src="Numbers/Amber/m_07.png" height="1" width="1">
+<img src="Numbers/Amber/m_08.png" height="1" width="1">
+<img src="Numbers/Amber/m_09.png" height="1" width="1">
+<img src="Numbers/Amber/m_10.png" height="1" width="1">
+<img src="Numbers/Amber/m_11.png" height="1" width="1">
+</div>
+
+</body></html>

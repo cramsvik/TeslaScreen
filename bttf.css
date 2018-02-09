@@ -1,0 +1,179 @@
+﻿div#controlpanel{
+	background:#000000 none no-repeat scroll 0% 0%; 
+	background-image: url(bttf.png);
+height:768px;
+}
+
+div#settings{
+	display:none;
+}
+
+div#about,
+div#other_sites,
+div#help{
+	margin-top:30px;
+}
+
+ul.versionlist{
+	list-style-type:none;
+}
+li.releasenumber{
+	font-weight:bold;
+}
+li.releasedate{
+	font-style:italic;
+}
+
+div.clock{
+	height:225px;
+	/*border:1px red dashed;*/
+}
+
+div.clock.present{
+	padding-top:5px;	
+}
+div.clock.last div{
+	margin-right:1px;	
+}
+div.clock.last{
+	padding-top:8px;	
+}
+
+div.clock div{
+/*	border:1px cyan dotted;*/
+	position:relative;
+	top: 57px;
+	height:100px;
+	float:left;
+	overflow:hidden;
+	color:white;
+/*background: rgb(54, 25, 25); /* Fall-back for browsers that don't
+                                    support rgba */
+/*    background: rgba(54, 25, 25, .9)*/
+/*background:red;*/
+}
+
+div.clock div img{
+	margin-right:1px;
+}
+
+div.clock div.month{
+	left:25px;
+	width:220px;	
+	
+}
+div.clock div.day{
+	left:61px;
+	width:144px;		
+}
+div.clock div.year{
+	left:100px;
+	width:280px;
+	padding-top:2px;	
+	
+}
+div.clock div.ampm{
+	left:125px;
+	width:30px;	
+	
+}
+div.clock div.hour{
+	left:139px;
+	width:145px;	
+	padding-top:2px;	
+}
+div.clock div.colon{
+	left:150px;
+	width:30px;	
+}
+div.clock div.minute{
+	left:142px;
+	width:142px;	
+	padding-top:2px;	
+}
+
+
+.preload{
+	display:none;
+}
+/***********/
+
+
+p 
+{
+	margin: 0px;
+}
+
+div.intcases 
+{
+	font-family: arial; 
+	font-size: 12px;
+    text-align:left; 
+	border:1px solid #AAA; 
+	background:#FFF none repeat scroll 0% 0%; 
+	z-index:9999; 
+	visibility:hidden; 
+	position:absolute;
+    padding: 0px;
+    border-radius: 3px;
+}
+
+div.intcaselink
+{
+	cursor: pointer;
+    padding: 3px 8px 3px 8px;
+    margin: 5px;
+	background:#EEE none repeat scroll 0% 0%; 
+	border:1px solid #AAA;
+    border-radius: 3px;
+}
+
+div.annnoteimage
+{
+	position: absolute;
+	font-size: 0px;
+	width: 16px;
+	height: 12px;
+	cursor: help;
+	background-image: url(images/note.gif);
+	background-repeat: no-repeat;
+}
+
+div.annnotelabel
+{
+	position: absolute;
+	font-family: Arial;
+	font-size: 10px;
+	border: 1px solid #666666;
+	cursor: help;
+	background:#DDDD00 none repeat scroll 0% 0%; 
+	padding-left:3px; 
+	padding-right:3px;
+	white-space: nowrap;
+}
+ 
+.annotationName 
+{
+	font-size: .7em;
+	font-weight: bold;
+	margin-bottom: .2em;
+	white-space: nowrap;
+}
+
+.annotation 
+{
+	font-size: .7em;
+	padding-left: .2em;
+	margin-bottom: 1em;
+}
+
+/* this is a fix for the issue where dialogs jump around and takes the text-align from the body */
+.dialogFix 
+{
+    position:absolute;
+    text-align:left;
+}
+
+.diger{
+	font-size:30px;	
+}
